@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>King Technology | Strategic Industry Analysis</title>
+  <script type="module" src="https://js.arcgis.com/5.0/"></script>
+  <link rel="stylesheet" href="https://js.arcgis.com/5.0/esri/themes/dark/main.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="calcite-mode-dark">
+
+  <!-- ==================== LOGIN SCREEN ==================== -->
+  <div id="login-overlay">
+    <div id="login-card">
+      <div id="login-logo">
+        <svg viewBox="0 0 60 60" width="60" height="60">
+          <circle cx="30" cy="30" r="28" fill="none" stroke="#00a0df" stroke-width="2"/>
+          <text x="30" y="36" text-anchor="middle" fill="#00a0df" font-size="22" font-weight="bold" font-family="sans-serif">KT</text>
+        </svg>
+      </div>
+      <h2>King Technology</h2>
+      <p class="login-subtitle">Strategic Industry Analysis Portal</p>
+      <form id="login-form" autocomplete="off">
+        <calcite-label>
+          Username
+          <calcite-input-text id="login-user" placeholder="Enter username" icon="user" required></calcite-input-text>
+        </calcite-label>
+        <calcite-label>
+          Password
+          <calcite-input-text id="login-pass" type="password" placeholder="Enter password" icon="lock" required></calcite-input-text>
+        </calcite-label>
+        <calcite-button id="login-btn" width="full" appearance="solid" kind="brand" icon-start="sign-in">
+          Sign In
+        </calcite-button>
+        <p id="login-error" style="display:none;">Invalid credentials. Please try again.</p>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==================== MAIN APP ==================== -->
+  <div id="app" style="display:none;">
+    <calcite-shell>
+
+      <!-- HEADER -->
+      <calcite-navigation slot="header">
+        <calcite-navigation-logo
+          slot="logo"
+          heading="King Technology"
+          description="Strategic Industry Analysis"
+          icon="organization"
+        ></calcite-navigation-logo>
+        <calcite-action-group slot="content-end" layout="horizontal">
+          <calcite-action text="Challenges" icon="exclamation-mark-triangle" id="nav-challenges"></calcite-action>
+          <calcite-action text="Opportunities" icon="lightbulb" id="nav-opportunities"></calcite-action>
+          <calcite-action text="Global Map" icon="globe" id="nav-map"></calcite-action>
+        </calcite-action-group>
+        <calcite-action slot="content-end" text="Sign Out" icon="sign-out" id="nav-signout"></calcite-action>
+      </calcite-navigation>
+
+      <!-- LEFT PANEL -->
+      <calcite-shell-panel slot="panel-start" width-scale="l" id="left-panel">
+        <calcite-panel heading="Analysis Dashboard" description="Pool & Spa Water Care Industry">
+
+          <!-- COMPANY OVERVIEW -->
+          <calcite-block heading="Company Overview" open collapsible>
+            <calcite-icon icon="organization" slot="icon"></calcite-icon>
+            <div class="info-content">
+              <div class="stat-row">
+                <calcite-chip kind="brand" icon="pin">Minnetonka, MN</calcite-chip>
+                <calcite-chip kind="neutral" icon="clock">25+ Years</calcite-chip>
+              </div>
+              <p>King Technology manufactures innovative water care products for pools and hot tubs. Their flagship <strong>FROG</strong> brand uses patented mineral sanitization to reduce chlorine use by up to 50%.</p>
+              <div class="brand-tags">
+                <calcite-chip scale="s" appearance="outline-fill">FROG</calcite-chip>
+                <calcite-chip scale="s" appearance="outline-fill">AQUA SMARTE Plus</calcite-chip>
+                <calcite-chip scale="s" appearance="outline-fill">SANI-KING</calcite-chip>
+                <calcite-chip scale="s" appearance="outline-fill">New Water</calcite-chip>
+              </div>
+            </div>
+          </calcite-block>
+
+          <!-- MARKET STATS -->
+          <calcite-block heading="Market Snapshot" open collapsible>
+            <calcite-icon icon="graph-bar" slot="icon"></calcite-icon>
+            <div class="info-content">
+              <div class="metric-grid">
+                <div class="metric-card">
+                  <div class="metric-value">$49.1B</div>
+                  <div class="metric-label">Pool & Spa Market by 2034</div>
+                </div>
+                <div class="metric-card">
+                  <div class="metric-value">6.6%</div>
+                  <div class="metric-label">Market CAGR</div>
+                </div>
+                <div class="metric-card">
+                  <div class="metric-value">$669.8M</div>
+                  <div class="metric-label">Smart Pool Monitor Market</div>
+                </div>
+                <div class="metric-card">
+                  <div class="metric-value">10.3%</div>
+                  <div class="metric-label">Smart Pool CAGR</div>
+                </div>
+              </div>
+            </div>
+          </calcite-block>
+
+          <!-- REGIONAL MARKET SHARE -->
+          <calcite-block heading="Regional Market Share" collapsible open>
+            <calcite-icon icon="pie-chart" slot="icon"></calcite-icon>
+            <div class="info-content">
+              <div class="bar-chart">
+                <div class="bar-row">
+                  <span class="bar-label">North America</span>
+                  <div class="bar-track"><div class="bar-fill na" style="width:35%"></div></div>
+                  <span class="bar-value">35%</span>
+                </div>
+                <div class="bar-row">
+                  <span class="bar-label">Europe</span>
+                  <div class="bar-track"><div class="bar-fill eu" style="width:28%"></div></div>
+                  <span class="bar-value">28%</span>
+                </div>
+                <div class="bar-row">
+                  <span class="bar-label">Asia Pacific</span>
+                  <div class="bar-track"><div class="bar-fill ap" style="width:25%"></div></div>
+                  <span class="bar-value">25%</span>
+                </div>
+                <div class="bar-row">
+                  <span class="bar-label">Rest of World</span>
+                  <div class="bar-track"><div class="bar-fill rw" style="width:12%"></div></div>
+                  <span class="bar-value">12%</span>
+                </div>
+              </div>
+              <p class="chart-note">Asia Pacific is the fastest-growing region at <strong>9.5% CAGR</strong></p>
+            </div>
+          </calcite-block>
+
+          <!-- COMPETITOR LANDSCAPE -->
+          <calcite-block heading="Competitor Landscape" collapsible>
+            <calcite-icon icon="users" slot="icon"></calcite-icon>
+            <div class="info-content">
+              <div class="competitor-list">
+                <div class="competitor-row">
+                  <span class="comp-name">Fluidra S.A.</span>
+                  <calcite-chip scale="s" kind="danger">15% share</calcite-chip>
+                  <span class="comp-loc">Barcelona, Spain</span>
+                </div>
+                <div class="competitor-row">
+                  <span class="comp-name">Hayward Industries</span>
+                  <calcite-chip scale="s" kind="warning">12% share</calcite-chip>
+                  <span class="comp-loc">Charlotte, NC</span>
+                </div>
+                <div class="competitor-row">
+                  <span class="comp-name">Pentair</span>
+                  <calcite-chip scale="s" kind="warning">11% share</calcite-chip>
+                  <span class="comp-loc">London, UK</span>
+                </div>
+                <div class="competitor-row">
+                  <span class="comp-name">King Technology</span>
+                  <calcite-chip scale="s" kind="brand">Niche leader</calcite-chip>
+                  <span class="comp-loc">Minnetonka, MN</span>
+                </div>
+              </div>
+            </div>
+          </calcite-block>
+
+        </calcite-panel>
+      </calcite-shell-panel>
+
+      <!-- MAP AREA (center) -->
+      <div id="main-content">
+        <!-- Section: Intro / Map -->
+        <div id="section-map" class="section active">
+          <arcgis-map id="mainMap" basemap="dark-gray-vector" center="-30, 25" zoom="2"></arcgis-map>
+          <div id="map-legend">
+            <div class="legend-title">Global Strategic Landscape</div>
+            <div class="legend-item"><span class="legend-dot hq"></span> King Technology HQ</div>
+            <div class="legend-item"><span class="legend-dot competitor"></span> Major Competitors</div>
+            <div class="legend-item"><span class="legend-dot growth"></span> High-Growth Markets</div>
+          </div>
+        </div>
+
+        <!-- Section: Challenges -->
+        <div id="section-challenges" class="section">
+          <div class="story-container">
+            <h1 class="section-title challenge-color">Biggest Challenges</h1>
+
+            <div class="story-card challenge">
+              <div class="card-header">
+                <calcite-icon icon="technology" scale="l"></calcite-icon>
+                <h2>1. Smart Pool Tech Disruption</h2>
+              </div>
+              <p>The smart pool monitoring market is growing at <strong>10.3% CAGR</strong>, projected to reach <strong>$669.8M by 2033</strong>. IoT-enabled systems from Fluidra, Hayward, and Pentair offer automated dosing, AI-powered water chemistry, and app-based remote management. These systems threaten King Technology's manual cartridge-based model.</p>
+              <div class="impact-meter">
+                <span class="impact-label">Impact Level</span>
+                <div class="impact-bar"><div class="impact-fill" style="width:90%"></div></div>
+                <span class="impact-value">Critical</span>
+              </div>
+            </div>
+
+            <div class="story-card challenge">
+              <div class="card-header">
+                <calcite-icon icon="store" scale="l"></calcite-icon>
+                <h2>2. Distribution Model Under Pressure</h2>
+              </div>
+              <p>King Technology sells exclusively through dealers &mdash; no online or direct-to-consumer sales. In a market where <strong>44% of pool owners</strong> are upgrading to smart tech (often purchased online), this dealer-only model limits reach and growth velocity.</p>
+              <div class="impact-meter">
+                <span class="impact-label">Impact Level</span>
+                <div class="impact-bar"><div class="impact-fill" style="width:75%"></div></div>
+                <span class="impact-value">High</span>
+              </div>
+            </div>
+
+            <div class="story-card challenge">
+              <div class="card-header">
+                <calcite-icon icon="organization" scale="l"></calcite-icon>
+                <h2>3. Scale Disadvantage vs. Giants</h2>
+              </div>
+              <p>Fluidra (15%), Hayward (12%), and Pentair (11%) are multi-billion dollar companies with massive R&D budgets, full-stack product ecosystems, and global distribution. King Technology is a niche player competing against vertically integrated giants.</p>
+              <div class="impact-meter">
+                <span class="impact-label">Impact Level</span>
+                <div class="impact-bar"><div class="impact-fill" style="width:70%"></div></div>
+                <span class="impact-value">High</span>
+              </div>
+            </div>
+
+            <div class="story-card challenge">
+              <div class="card-header">
+                <calcite-icon icon="currency-dollar" scale="l"></calcite-icon>
+                <h2>4. Raw Material Cost Volatility</h2>
+              </div>
+              <p>Fluctuations in chemical and mineral raw material prices directly impact margins. As a specialty manufacturer, King Technology has less pricing power than larger, diversified competitors.</p>
+              <div class="impact-meter">
+                <span class="impact-label">Impact Level</span>
+                <div class="impact-bar"><div class="impact-fill" style="width:55%"></div></div>
+                <span class="impact-value">Medium</span>
+              </div>
+            </div>
+
+            <div class="story-card challenge">
+              <div class="card-header">
+                <calcite-icon icon="speech-bubble" scale="l"></calcite-icon>
+                <h2>5. Consumer Perception Gap</h2>
+              </div>
+              <p>Some consumers question mineral sanitization efficacy, indicating an ongoing need to invest in education and trust-building around the science behind FROG technology.</p>
+              <div class="impact-meter">
+                <span class="impact-label">Impact Level</span>
+                <div class="impact-bar"><div class="impact-fill" style="width:45%"></div></div>
+                <span class="impact-value">Medium</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section: Opportunities -->
+        <div id="section-opportunities" class="section">
+          <div class="story-container">
+            <h1 class="section-title opportunity-color">Biggest Opportunities</h1>
+
+            <div class="story-card opportunity">
+              <div class="card-header">
+                <calcite-icon icon="wellness" scale="l"></calcite-icon>
+                <h2>1. Wellness & Low-Chemical Mega-Trend</h2>
+              </div>
+              <p>Consumer demand for reduced-chemical, skin-friendly water is surging. The broader pool & spa market is growing at <strong>6.6% CAGR toward $49.1B by 2034</strong>. King Technology's core value proposition &mdash; 50% less chlorine, softer water &mdash; is perfectly aligned with this mega-trend.</p>
+              <div class="opportunity-score">
+                <span>Opportunity Score</span>
+                <div class="opp-stars">
+                  <calcite-icon icon="star-f" scale="s"></calcite-icon>
+                  <calcite-icon icon="star-f" scale="s"></calcite-icon>
+                  <calcite-icon icon="star-f" scale="s"></calcite-icon>
+                  <calcite-icon icon="star-f" scale="s"></calcite-icon>
+                  <calcite-icon icon="star-f" scale="s"></calcite-icon>
+                </div>
+              </div>
+            </div>
+
+            <div class="story-card opportunity">
+              <div class="card-header">
+                <calcite-icon icon="mobile" scale="l"></calcite-icon>
+                <h2>2. Smart-Enabled FROG Products</h2>
+              </div>
+              <p>Integrate IoT sensors and app connectivity into existing cartridge systems. A "Smart FROG" that monitors mineral/chlorine levels, alerts on cartridge replacement, and auto-tracks water quality would combine their mineral advantage with the automation consumers demand.</p>
+              <div class="opportunity-score">
+                <span>Opportunity Score</span>
+                <div class="opp-stars">
+                  <calcite-icon icon="star-f" scale="s"></calcite-icon>
+                  <calcite-icon icon="star-f" scale="s"></calcite-icon>
+                  <calcite-icon icon="star-f" scale="s"></calcite-icon>
+                  <calcite-icon icon="star-f" scale="s"></calcite-icon>
+                  <calcite-icon icon="star-f" scale="s"></calcite-icon>
+                </div>
+              </div>
+            </div>
+
+            <div class="story-card opportunity">
+              <div class="card-header">
+                <calcite-icon icon="globe" scale="l"></calcite-icon>
+                <h2>3. Asia-Pacific Expansion</h2>
+              </div>
+              <p>Asia-Pacific is the <strong>fastest-growing region at 9.5% CAGR</strong>, driven by rising incomes and a growing middle class. King Technology could expand internationally through partnerships, licensing, or strategic alliances in key markets like Australia, China, and Southeast Asia.</p>
+              <div class="opportunity-score">
+                <span>Opportunity Score</span>
+                <div class="opp-stars">
+                  <calcite-icon icon="star-f" scale="s"></calcite-icon>
+                  <calcite-icon icon="star-f" scale="s"></calcite-icon>
+                  <calcite-icon icon="star-f" scale="s"></calcite-icon>
+                  <calcite-icon icon="star-f" scale="s"></calcite-icon>
+                  <calcite-icon icon="star" scale="s"></calcite-icon>
+                </div>
+              </div>
+            </div>
+
+            <div class="story-card opportunity">
+              <div class="card-header">
+                <calcite-icon icon="urban-model" scale="l"></calcite-icon>
+                <h2>4. Commercial Pool Market</h2>
+              </div>
+              <p>Over <strong>47% of commercial pools</strong> now use automated systems. Alternative sanitization (UV, ozone, mineral) is gaining traction in therapeutic facilities, hotels, and indoor pools. King Technology could develop commercial-grade FROG systems for this underserved segment.</p>
+              <div class="opportunity-score">
+                <span>Opportunity Score</span>
+                <div class="opp-stars">
+                  <calcite-icon icon="star-f" scale="s"></calcite-icon>
+                  <calcite-icon icon="star-f" scale="s"></calcite-icon>
+                  <calcite-icon icon="star-f" scale="s"></calcite-icon>
+                  <calcite-icon icon="star-f" scale="s"></calcite-icon>
+                  <calcite-icon icon="star" scale="s"></calcite-icon>
+                </div>
+              </div>
+            </div>
+
+            <div class="story-card opportunity">
+              <div class="card-header">
+                <calcite-icon icon="recurrence" scale="l"></calcite-icon>
+                <h2>5. Hot Tub & Swim Spa Growth</h2>
+              </div>
+              <p>Spas dominate the market with <strong>36.7% share</strong> and the at-home wellness trend continues. FROG Serene was the first mineral + bromine sanitizer. Expanding this line and targeting the growing swim spa segment is a natural growth path.</p>
+              <div class="opportunity-score">
+                <span>Opportunity Score</span>
+                <div class="opp-stars">
+                  <calcite-icon icon="star-f" scale="s"></calcite-icon>
+                  <calcite-icon icon="star-f" scale="s"></calcite-icon>
+                  <calcite-icon icon="star-f" scale="s"></calcite-icon>
+                  <calcite-icon icon="star-f" scale="s"></calcite-icon>
+                  <calcite-icon icon="star" scale="s"></calcite-icon>
+                </div>
+              </div>
+            </div>
+
+            <div class="story-card opportunity">
+              <div class="card-header">
+                <calcite-icon icon="cart" scale="l"></calcite-icon>
+                <h2>6. Subscription Revenue Model</h2>
+              </div>
+              <p>The cartridge-based system is ideal for a subscription model &mdash; automated cartridge delivery timed to usage. This would increase customer lifetime value and lock in predictable recurring revenue.</p>
+              <div class="opportunity-score">
+                <span>Opportunity Score</span>
+                <div class="opp-stars">
+                  <calcite-icon icon="star-f" scale="s"></calcite-icon>
+                  <calcite-icon icon="star-f" scale="s"></calcite-icon>
+                  <calcite-icon icon="star-f" scale="s"></calcite-icon>
+                  <calcite-icon icon="star" scale="s"></calcite-icon>
+                  <calcite-icon icon="star" scale="s"></calcite-icon>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT PANEL -->
+      <calcite-shell-panel slot="panel-end" width-scale="s" id="right-panel">
+        <calcite-panel heading="Key Insights">
+
+          <calcite-block heading="SWOT Summary" open collapsible>
+            <calcite-icon icon="compass" slot="icon"></calcite-icon>
+            <div class="info-content">
+              <div class="swot-grid">
+                <div class="swot-cell strength">
+                  <h4>Strengths</h4>
+                  <ul>
+                    <li>Patented mineral tech</li>
+                    <li>50% less chlorine</li>
+                    <li>25+ year brand equity</li>
+                    <li>Strong dealer network</li>
+                  </ul>
+                </div>
+                <div class="swot-cell weakness">
+                  <h4>Weaknesses</h4>
+                  <ul>
+                    <li>No smart/IoT products</li>
+                    <li>Dealer-only distribution</li>
+                    <li>Limited global presence</li>
+                    <li>Niche scale</li>
+                  </ul>
+                </div>
+                <div class="swot-cell opp">
+                  <h4>Opportunities</h4>
+                  <ul>
+                    <li>Wellness mega-trend</li>
+                    <li>Asia-Pacific expansion</li>
+                    <li>Smart FROG integration</li>
+                    <li>Subscription model</li>
+                  </ul>
+                </div>
+                <div class="swot-cell threat">
+                  <h4>Threats</h4>
+                  <ul>
+                    <li>IoT disruption</li>
+                    <li>Mega-competitors</li>
+                    <li>Raw material costs</li>
+                    <li>Consumer skepticism</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </calcite-block>
+
+          <calcite-block heading="Strategic Verdict" collapsible open>
+            <calcite-icon icon="check-circle-f" slot="icon"></calcite-icon>
+            <div class="info-content">
+              <calcite-notice open kind="brand" icon="lightbulb">
+                <span slot="title">Bottom Line</span>
+                <span slot="message">King Technology has a strong, differentiated product aligned with where the market is heading. The biggest risk is falling behind on smart/connected tech. The biggest upside lies in marrying mineral technology with IoT features, expanding globally, and building subscription revenue.</span>
+              </calcite-notice>
+            </div>
+          </calcite-block>
+
+          <calcite-block heading="Data Sources" collapsible>
+            <calcite-icon icon="book" slot="icon"></calcite-icon>
+            <div class="info-content source-list">
+              <a href="https://www.kingtechnology.com/" target="_blank">King Technology</a>
+              <a href="https://www.frogproducts.com/" target="_blank">FROG Products</a>
+              <a href="https://www.researchandmarkets.com/" target="_blank">Research & Markets</a>
+              <a href="https://www.prnewswire.co.uk/" target="_blank">Allied Market Research</a>
+              <a href="https://www.poolspamarketing.com/" target="_blank">Pool & Spa Marketing</a>
+              <a href="https://www.archivemarketresearch.com/" target="_blank">Archive Market Research</a>
+            </div>
+          </calcite-block>
+
+        </calcite-panel>
+      </calcite-shell-panel>
+
+    </calcite-shell>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
