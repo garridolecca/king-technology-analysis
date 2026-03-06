@@ -51,9 +51,9 @@
           icon="organization"
         ></calcite-navigation-logo>
         <calcite-action-group slot="content-end" layout="horizontal">
-          <calcite-action text="U.S. Map" icon="map" id="nav-map"></calcite-action>
           <calcite-action text="Challenges" icon="exclamation-mark-triangle" id="nav-challenges"></calcite-action>
           <calcite-action text="Opportunities" icon="lightbulb" id="nav-opportunities"></calcite-action>
+          <calcite-action text="U.S. Map" icon="map" id="nav-map"></calcite-action>
           <calcite-action text="SWOT" icon="compass" id="nav-swot"></calcite-action>
         </calcite-action-group>
         <calcite-action slot="content-end" text="Sign Out" icon="sign-out" id="nav-signout"></calcite-action>
@@ -194,20 +194,8 @@
       <!-- MAP & CONTENT AREA (center) -->
       <div id="main-content">
 
-        <!-- Section: U.S. Map -->
-        <div id="section-map" class="section active">
-          <arcgis-map id="mainMap" basemap="dark-gray-vector" center="-98, 38" zoom="4"></arcgis-map>
-          <div id="map-legend">
-            <div class="legend-title">U.S. Strategic Landscape</div>
-            <div class="legend-item"><span class="legend-dot hq"></span> King Technology HQ</div>
-            <div class="legend-item"><span class="legend-dot competitor"></span> U.S. Competitors</div>
-            <div class="legend-item"><span class="legend-dot growth"></span> High-Growth Pool Markets</div>
-            <div class="legend-item"><span class="legend-dot hotspot"></span> Key Hot Tub / Spa Markets</div>
-          </div>
-        </div>
-
-        <!-- Section: Challenges -->
-        <div id="section-challenges" class="section">
+        <!-- Section: Challenges (DEFAULT) -->
+        <div id="section-challenges" class="section active">
           <div class="story-container">
             <h1 class="section-title challenge-color">Challenges in the U.S. Market</h1>
 
@@ -421,6 +409,20 @@
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+
+        <!-- Section: U.S. Map -->
+        <div id="section-map" class="section">
+          <arcgis-map id="mainMap" basemap="dark-gray-vector" center="-98, 38" zoom="4"></arcgis-map>
+          <div id="map-legend">
+            <div class="legend-title">U.S. Strategic Landscape</div>
+            <div class="legend-item"><span class="legend-dot hq"></span> King Technology HQ</div>
+            <div class="legend-item"><span class="legend-dot competitor"></span> U.S. Competitors</div>
+            <div class="legend-item"><span class="legend-dot growth"></span> High-Growth Pool Markets</div>
+            <div class="legend-item"><span class="legend-dot hotspot"></span> Hot Tub / Spa Markets</div>
+            <div class="legend-item"><span class="legend-dot distributor"></span> Major Distributors</div>
+            <div class="legend-item"><span class="legend-dot commercial"></span> Commercial / Hotel Corridors</div>
           </div>
         </div>
 

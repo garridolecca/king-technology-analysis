@@ -168,6 +168,8 @@ arcgis-map {
 .legend-dot.competitor { background: var(--kt-challenge); box-shadow: 0 0 8px var(--kt-challenge); }
 .legend-dot.growth { background: var(--kt-opportunity); box-shadow: 0 0 8px var(--kt-opportunity); }
 .legend-dot.hotspot { background: var(--kt-gold); box-shadow: 0 0 8px var(--kt-gold); }
+.legend-dot.distributor { background: #a29bfe; box-shadow: 0 0 8px #a29bfe; }
+.legend-dot.commercial { background: #fd79a8; box-shadow: 0 0 8px #fd79a8; }
 
 /* ===== STORY CONTAINERS ===== */
 .story-container {
