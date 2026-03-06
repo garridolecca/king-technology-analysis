@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>King Technology | Strategic Industry Analysis</title>
+  <title>King Technology | U.S. Market Strategic Analysis</title>
   <script type="module" src="https://js.arcgis.com/5.0/"></script>
   <link rel="stylesheet" href="https://js.arcgis.com/5.0/esri/themes/dark/main.css" />
   <link rel="stylesheet" href="style.css" />
@@ -20,7 +20,7 @@
         </svg>
       </div>
       <h2>King Technology</h2>
-      <p class="login-subtitle">Strategic Industry Analysis Portal</p>
+      <p class="login-subtitle">U.S. Market Strategic Analysis</p>
       <form id="login-form" autocomplete="off">
         <calcite-label>
           Username
@@ -47,20 +47,21 @@
         <calcite-navigation-logo
           slot="logo"
           heading="King Technology"
-          description="Strategic Industry Analysis"
+          description="U.S. Market Strategic Analysis"
           icon="organization"
         ></calcite-navigation-logo>
         <calcite-action-group slot="content-end" layout="horizontal">
+          <calcite-action text="U.S. Map" icon="map" id="nav-map"></calcite-action>
           <calcite-action text="Challenges" icon="exclamation-mark-triangle" id="nav-challenges"></calcite-action>
           <calcite-action text="Opportunities" icon="lightbulb" id="nav-opportunities"></calcite-action>
-          <calcite-action text="Global Map" icon="globe" id="nav-map"></calcite-action>
+          <calcite-action text="SWOT" icon="compass" id="nav-swot"></calcite-action>
         </calcite-action-group>
         <calcite-action slot="content-end" text="Sign Out" icon="sign-out" id="nav-signout"></calcite-action>
       </calcite-navigation>
 
       <!-- LEFT PANEL -->
       <calcite-shell-panel slot="panel-start" width-scale="l" id="left-panel">
-        <calcite-panel heading="Analysis Dashboard" description="Pool & Spa Water Care Industry">
+        <calcite-panel heading="U.S. Market Dashboard" description="Pool & Spa Water Care Industry">
 
           <!-- COMPANY OVERVIEW -->
           <calcite-block heading="Company Overview" open collapsible>
@@ -80,120 +81,145 @@
             </div>
           </calcite-block>
 
-          <!-- MARKET STATS -->
-          <calcite-block heading="Market Snapshot" open collapsible>
+          <!-- U.S. MARKET STATS -->
+          <calcite-block heading="U.S. Market Snapshot" open collapsible>
             <calcite-icon icon="graph-bar" slot="icon"></calcite-icon>
             <div class="info-content">
               <div class="metric-grid">
                 <div class="metric-card">
-                  <div class="metric-value">$49.1B</div>
-                  <div class="metric-label">Pool & Spa Market by 2034</div>
+                  <div class="metric-value">5.4M</div>
+                  <div class="metric-label">In-Ground Pools in the U.S.</div>
                 </div>
                 <div class="metric-card">
-                  <div class="metric-value">6.6%</div>
-                  <div class="metric-label">Market CAGR</div>
+                  <div class="metric-value">$8.1B</div>
+                  <div class="metric-label">U.S. Pool Market (2025)</div>
                 </div>
                 <div class="metric-card">
-                  <div class="metric-value">$669.8M</div>
-                  <div class="metric-label">Smart Pool Monitor Market</div>
+                  <div class="metric-value">7.3M</div>
+                  <div class="metric-label">U.S. Hot Tubs Installed</div>
                 </div>
                 <div class="metric-card">
-                  <div class="metric-value">10.3%</div>
-                  <div class="metric-label">Smart Pool CAGR</div>
+                  <div class="metric-value">44%</div>
+                  <div class="metric-label">Owners Upgrading to Smart Tech</div>
                 </div>
               </div>
             </div>
           </calcite-block>
 
-          <!-- REGIONAL MARKET SHARE -->
-          <calcite-block heading="Regional Market Share" collapsible open>
+          <!-- U.S. REGIONAL POOL DENSITY -->
+          <calcite-block heading="U.S. Pool Density by Region" collapsible open>
             <calcite-icon icon="pie-chart" slot="icon"></calcite-icon>
             <div class="info-content">
               <div class="bar-chart">
                 <div class="bar-row">
-                  <span class="bar-label">North America</span>
-                  <div class="bar-track"><div class="bar-fill na" style="width:35%"></div></div>
-                  <span class="bar-value">35%</span>
+                  <span class="bar-label">Sun Belt (FL, TX, AZ)</span>
+                  <div class="bar-track"><div class="bar-fill sunbelt" style="width:42%"></div></div>
+                  <span class="bar-value">42%</span>
                 </div>
                 <div class="bar-row">
-                  <span class="bar-label">Europe</span>
-                  <div class="bar-track"><div class="bar-fill eu" style="width:28%"></div></div>
-                  <span class="bar-value">28%</span>
+                  <span class="bar-label">West (CA, NV)</span>
+                  <div class="bar-track"><div class="bar-fill west" style="width:22%"></div></div>
+                  <span class="bar-value">22%</span>
                 </div>
                 <div class="bar-row">
-                  <span class="bar-label">Asia Pacific</span>
-                  <div class="bar-track"><div class="bar-fill ap" style="width:25%"></div></div>
-                  <span class="bar-value">25%</span>
+                  <span class="bar-label">Southeast (GA, SC, NC)</span>
+                  <div class="bar-track"><div class="bar-fill southeast" style="width:18%"></div></div>
+                  <span class="bar-value">18%</span>
                 </div>
                 <div class="bar-row">
-                  <span class="bar-label">Rest of World</span>
-                  <div class="bar-track"><div class="bar-fill rw" style="width:12%"></div></div>
-                  <span class="bar-value">12%</span>
+                  <span class="bar-label">Midwest & Northeast</span>
+                  <div class="bar-track"><div class="bar-fill midwest" style="width:18%"></div></div>
+                  <span class="bar-value">18%</span>
                 </div>
               </div>
-              <p class="chart-note">Asia Pacific is the fastest-growing region at <strong>9.5% CAGR</strong></p>
+              <p class="chart-note">Sun Belt states account for the largest pool concentration &mdash; <strong>fastest new pool construction growth</strong></p>
             </div>
           </calcite-block>
 
-          <!-- COMPETITOR LANDSCAPE -->
-          <calcite-block heading="Competitor Landscape" collapsible>
+          <!-- U.S. COMPETITOR LANDSCAPE -->
+          <calcite-block heading="U.S. Competitor Landscape" collapsible>
             <calcite-icon icon="users" slot="icon"></calcite-icon>
             <div class="info-content">
               <div class="competitor-list">
                 <div class="competitor-row">
-                  <span class="comp-name">Fluidra S.A.</span>
-                  <calcite-chip scale="s" kind="danger">15% share</calcite-chip>
-                  <span class="comp-loc">Barcelona, Spain</span>
-                </div>
-                <div class="competitor-row">
                   <span class="comp-name">Hayward Industries</span>
-                  <calcite-chip scale="s" kind="warning">12% share</calcite-chip>
+                  <calcite-chip scale="s" kind="danger">Major</calcite-chip>
                   <span class="comp-loc">Charlotte, NC</span>
                 </div>
                 <div class="competitor-row">
                   <span class="comp-name">Pentair</span>
-                  <calcite-chip scale="s" kind="warning">11% share</calcite-chip>
-                  <span class="comp-loc">London, UK</span>
+                  <calcite-chip scale="s" kind="danger">Major</calcite-chip>
+                  <span class="comp-loc">Golden Valley, MN</span>
+                </div>
+                <div class="competitor-row">
+                  <span class="comp-name">Fluidra (Zodiac)</span>
+                  <calcite-chip scale="s" kind="warning">Major (acquired Zodiac)</calcite-chip>
+                  <span class="comp-loc">Carlsbad, CA</span>
+                </div>
+                <div class="competitor-row">
+                  <span class="comp-name">Bioguard (SCP)</span>
+                  <calcite-chip scale="s" kind="warning">Chemical specialist</calcite-chip>
+                  <span class="comp-loc">Lawrenceville, GA</span>
+                </div>
+                <div class="competitor-row">
+                  <span class="comp-name">Natural Chemistry</span>
+                  <calcite-chip scale="s" kind="neutral">Niche</calcite-chip>
+                  <span class="comp-loc">Norwalk, CT</span>
                 </div>
                 <div class="competitor-row">
                   <span class="comp-name">King Technology</span>
-                  <calcite-chip scale="s" kind="brand">Niche leader</calcite-chip>
+                  <calcite-chip scale="s" kind="brand">Mineral leader</calcite-chip>
                   <span class="comp-loc">Minnetonka, MN</span>
                 </div>
               </div>
             </div>
           </calcite-block>
 
+          <!-- DATA SOURCES -->
+          <calcite-block heading="Data Sources" collapsible>
+            <calcite-icon icon="book" slot="icon"></calcite-icon>
+            <div class="info-content source-list">
+              <a href="https://www.kingtechnology.com/" target="_blank">King Technology</a>
+              <a href="https://www.frogproducts.com/" target="_blank">FROG Products</a>
+              <a href="https://www.poolspanews.com/" target="_blank">Pool & Spa News</a>
+              <a href="https://www.researchandmarkets.com/" target="_blank">Research & Markets</a>
+              <a href="https://www.poolspamarketing.com/" target="_blank">Pool & Spa Marketing</a>
+              <a href="https://www.archivemarketresearch.com/" target="_blank">Archive Market Research</a>
+            </div>
+          </calcite-block>
+
         </calcite-panel>
       </calcite-shell-panel>
 
-      <!-- MAP AREA (center) -->
+      <!-- MAP & CONTENT AREA (center) -->
       <div id="main-content">
-        <!-- Section: Intro / Map -->
+
+        <!-- Section: U.S. Map -->
         <div id="section-map" class="section active">
-          <arcgis-map id="mainMap" basemap="dark-gray-vector" center="-30, 25" zoom="2"></arcgis-map>
+          <arcgis-map id="mainMap" basemap="dark-gray-vector" center="-98, 38" zoom="4"></arcgis-map>
           <div id="map-legend">
-            <div class="legend-title">Global Strategic Landscape</div>
+            <div class="legend-title">U.S. Strategic Landscape</div>
             <div class="legend-item"><span class="legend-dot hq"></span> King Technology HQ</div>
-            <div class="legend-item"><span class="legend-dot competitor"></span> Major Competitors</div>
-            <div class="legend-item"><span class="legend-dot growth"></span> High-Growth Markets</div>
+            <div class="legend-item"><span class="legend-dot competitor"></span> U.S. Competitors</div>
+            <div class="legend-item"><span class="legend-dot growth"></span> High-Growth Pool Markets</div>
+            <div class="legend-item"><span class="legend-dot hotspot"></span> Key Hot Tub / Spa Markets</div>
           </div>
         </div>
 
         <!-- Section: Challenges -->
         <div id="section-challenges" class="section">
           <div class="story-container">
-            <h1 class="section-title challenge-color">Biggest Challenges</h1>
+            <h1 class="section-title challenge-color">Challenges in the U.S. Market</h1>
 
             <div class="story-card challenge">
               <div class="card-header">
                 <calcite-icon icon="technology" scale="l"></calcite-icon>
                 <h2>1. Smart Pool Tech Disruption</h2>
               </div>
-              <p>The smart pool monitoring market is growing at <strong>10.3% CAGR</strong>, projected to reach <strong>$669.8M by 2033</strong>. IoT-enabled systems from Fluidra, Hayward, and Pentair offer automated dosing, AI-powered water chemistry, and app-based remote management. These systems threaten King Technology's manual cartridge-based model.</p>
+              <p>U.S. smart pool adoption is accelerating &mdash; <strong>44% of American pool owners</strong> are upgrading to smart tech. Hayward's OmniLogic, Pentair's IntelliConnect, and Fluidra's iAquaLink offer automated dosing, AI-powered chemistry, and app-based control. These threaten King Technology's manual cartridge model in the world's largest pool market.</p>
               <div class="impact-meter">
                 <span class="impact-label">Impact Level</span>
-                <div class="impact-bar"><div class="impact-fill" style="width:90%"></div></div>
+                <div class="impact-bar"><div class="impact-fill" style="width:92%"></div></div>
                 <span class="impact-value">Critical</span>
               </div>
             </div>
@@ -201,12 +227,12 @@
             <div class="story-card challenge">
               <div class="card-header">
                 <calcite-icon icon="store" scale="l"></calcite-icon>
-                <h2>2. Distribution Model Under Pressure</h2>
+                <h2>2. Dealer-Only Model vs. U.S. E-Commerce Boom</h2>
               </div>
-              <p>King Technology sells exclusively through dealers &mdash; no online or direct-to-consumer sales. In a market where <strong>44% of pool owners</strong> are upgrading to smart tech (often purchased online), this dealer-only model limits reach and growth velocity.</p>
+              <p>King Technology sells exclusively through dealers while competitors flood Amazon, Home Depot, and Lowe's. U.S. pool chemical e-commerce grew <strong>30%+ since 2020</strong>. Pool owners in suburban Sun Belt markets increasingly expect next-day delivery for supplies &mdash; a gap the dealer model can't fill.</p>
               <div class="impact-meter">
                 <span class="impact-label">Impact Level</span>
-                <div class="impact-bar"><div class="impact-fill" style="width:75%"></div></div>
+                <div class="impact-bar"><div class="impact-fill" style="width:80%"></div></div>
                 <span class="impact-value">High</span>
               </div>
             </div>
@@ -214,22 +240,35 @@
             <div class="story-card challenge">
               <div class="card-header">
                 <calcite-icon icon="organization" scale="l"></calcite-icon>
-                <h2>3. Scale Disadvantage vs. Giants</h2>
+                <h2>3. U.S. Market Consolidation</h2>
               </div>
-              <p>Fluidra (15%), Hayward (12%), and Pentair (11%) are multi-billion dollar companies with massive R&D budgets, full-stack product ecosystems, and global distribution. King Technology is a niche player competing against vertically integrated giants.</p>
+              <p>The Big 3 (Hayward, Pentair, Fluidra/Zodiac) dominate U.S. distribution with full-stack ecosystems &mdash; pumps, filters, heaters, automation, AND chemicals. Pool builders and service companies prefer single-vendor relationships. As a chemical-only niche player, King Technology risks being <strong>squeezed out of the supply chain</strong>.</p>
               <div class="impact-meter">
                 <span class="impact-label">Impact Level</span>
-                <div class="impact-bar"><div class="impact-fill" style="width:70%"></div></div>
+                <div class="impact-bar"><div class="impact-fill" style="width:72%"></div></div>
                 <span class="impact-value">High</span>
               </div>
             </div>
 
             <div class="story-card challenge">
               <div class="card-header">
-                <calcite-icon icon="currency-dollar" scale="l"></calcite-icon>
-                <h2>4. Raw Material Cost Volatility</h2>
+                <calcite-icon icon="map-pin" scale="l"></calcite-icon>
+                <h2>4. Sun Belt Competition Intensifies</h2>
               </div>
-              <p>Fluctuations in chemical and mineral raw material prices directly impact margins. As a specialty manufacturer, King Technology has less pricing power than larger, diversified competitors.</p>
+              <p>Florida, Texas, and Arizona account for <strong>42% of U.S. pools</strong> and are the fastest-growing construction markets. Every major competitor is investing heavily in Sun Belt dealer networks, marketing, and inventory. King Technology must fight harder for shelf space in the markets that matter most.</p>
+              <div class="impact-meter">
+                <span class="impact-label">Impact Level</span>
+                <div class="impact-bar"><div class="impact-fill" style="width:65%"></div></div>
+                <span class="impact-value">High</span>
+              </div>
+            </div>
+
+            <div class="story-card challenge">
+              <div class="card-header">
+                <calcite-icon icon="speech-bubble" scale="l"></calcite-icon>
+                <h2>5. U.S. Consumer Education Gap</h2>
+              </div>
+              <p>American pool owners default to chlorine &mdash; it's what they know. Mineral sanitization requires education. With no DTC presence or major advertising budget, King Technology relies on dealers to sell the story. In big-box retail aisles dominated by Clorox and HTH, the FROG message doesn't reach enough consumers.</p>
               <div class="impact-meter">
                 <span class="impact-label">Impact Level</span>
                 <div class="impact-bar"><div class="impact-fill" style="width:55%"></div></div>
@@ -239,13 +278,13 @@
 
             <div class="story-card challenge">
               <div class="card-header">
-                <calcite-icon icon="speech-bubble" scale="l"></calcite-icon>
-                <h2>5. Consumer Perception Gap</h2>
+                <calcite-icon icon="cursor-marquee" scale="l"></calcite-icon>
+                <h2>6. Regulatory Pressure on Pool Chemicals</h2>
               </div>
-              <p>Some consumers question mineral sanitization efficacy, indicating an ongoing need to invest in education and trust-building around the science behind FROG technology.</p>
+              <p>EPA and state-level regulations on chemical runoff, chlorine byproducts (THMs), and water conservation are tightening, especially in <strong>California and drought-prone states</strong>. While this could favor mineral systems long-term, near-term compliance costs and reformulation requirements create uncertainty.</p>
               <div class="impact-meter">
                 <span class="impact-label">Impact Level</span>
-                <div class="impact-bar"><div class="impact-fill" style="width:45%"></div></div>
+                <div class="impact-bar"><div class="impact-fill" style="width:48%"></div></div>
                 <span class="impact-value">Medium</span>
               </div>
             </div>
@@ -255,14 +294,14 @@
         <!-- Section: Opportunities -->
         <div id="section-opportunities" class="section">
           <div class="story-container">
-            <h1 class="section-title opportunity-color">Biggest Opportunities</h1>
+            <h1 class="section-title opportunity-color">Opportunities in the U.S. Market</h1>
 
             <div class="story-card opportunity">
               <div class="card-header">
                 <calcite-icon icon="wellness" scale="l"></calcite-icon>
-                <h2>1. Wellness & Low-Chemical Mega-Trend</h2>
+                <h2>1. American Wellness Boom</h2>
               </div>
-              <p>Consumer demand for reduced-chemical, skin-friendly water is surging. The broader pool & spa market is growing at <strong>6.6% CAGR toward $49.1B by 2034</strong>. King Technology's core value proposition &mdash; 50% less chlorine, softer water &mdash; is perfectly aligned with this mega-trend.</p>
+              <p>The U.S. wellness economy is worth <strong>$480B+</strong>. American consumers are demanding chemical-free everything &mdash; food, skincare, and now pool water. FROG's "50% less chlorine, softer water" message is perfectly positioned for the health-conscious suburban homeowner. This is King Technology's biggest tailwind.</p>
               <div class="opportunity-score">
                 <span>Opportunity Score</span>
                 <div class="opp-stars">
@@ -278,9 +317,9 @@
             <div class="story-card opportunity">
               <div class="card-header">
                 <calcite-icon icon="mobile" scale="l"></calcite-icon>
-                <h2>2. Smart-Enabled FROG Products</h2>
+                <h2>2. Smart FROG for the U.S. Market</h2>
               </div>
-              <p>Integrate IoT sensors and app connectivity into existing cartridge systems. A "Smart FROG" that monitors mineral/chlorine levels, alerts on cartridge replacement, and auto-tracks water quality would combine their mineral advantage with the automation consumers demand.</p>
+              <p>Build a "Smart FROG" system with IoT sensors, a mobile app, and auto-reorder cartridges. American consumers already use smart home devices (Alexa, Nest, Ring) &mdash; a connected pool system fits naturally. Partner with <strong>Amazon or Home Depot</strong> for distribution and subscription fulfillment.</p>
               <div class="opportunity-score">
                 <span>Opportunity Score</span>
                 <div class="opp-stars">
@@ -295,10 +334,10 @@
 
             <div class="story-card opportunity">
               <div class="card-header">
-                <calcite-icon icon="globe" scale="l"></calcite-icon>
-                <h2>3. Asia-Pacific Expansion</h2>
+                <calcite-icon icon="map-pin" scale="l"></calcite-icon>
+                <h2>3. Dominate Sun Belt New Construction</h2>
               </div>
-              <p>Asia-Pacific is the <strong>fastest-growing region at 9.5% CAGR</strong>, driven by rising incomes and a growing middle class. King Technology could expand internationally through partnerships, licensing, or strategic alliances in key markets like Australia, China, and Southeast Asia.</p>
+              <p>Florida, Texas, and Arizona are building <strong>100K+ new pools per year</strong>. New builds are the best time to specify FROG mineral systems &mdash; before the homeowner defaults to chlorine. Partner with Sun Belt pool builders to make FROG the standard spec for new construction.</p>
               <div class="opportunity-score">
                 <span>Opportunity Score</span>
                 <div class="opp-stars">
@@ -306,7 +345,7 @@
                   <calcite-icon icon="star-f" scale="s"></calcite-icon>
                   <calcite-icon icon="star-f" scale="s"></calcite-icon>
                   <calcite-icon icon="star-f" scale="s"></calcite-icon>
-                  <calcite-icon icon="star" scale="s"></calcite-icon>
+                  <calcite-icon icon="star-f" scale="s"></calcite-icon>
                 </div>
               </div>
             </div>
@@ -314,9 +353,9 @@
             <div class="story-card opportunity">
               <div class="card-header">
                 <calcite-icon icon="urban-model" scale="l"></calcite-icon>
-                <h2>4. Commercial Pool Market</h2>
+                <h2>4. U.S. Commercial & Hospitality Pools</h2>
               </div>
-              <p>Over <strong>47% of commercial pools</strong> now use automated systems. Alternative sanitization (UV, ozone, mineral) is gaining traction in therapeutic facilities, hotels, and indoor pools. King Technology could develop commercial-grade FROG systems for this underserved segment.</p>
+              <p>The U.S. has <strong>300K+ commercial pools</strong> in hotels, resorts, HOAs, and fitness centers. These facilities face strict health codes and want to reduce chemical liability. A commercial-grade FROG system for hotel chains like Marriott, Hilton, or resort communities would open a massive recurring revenue channel.</p>
               <div class="opportunity-score">
                 <span>Opportunity Score</span>
                 <div class="opp-stars">
@@ -332,9 +371,9 @@
             <div class="story-card opportunity">
               <div class="card-header">
                 <calcite-icon icon="recurrence" scale="l"></calcite-icon>
-                <h2>5. Hot Tub & Swim Spa Growth</h2>
+                <h2>5. U.S. Hot Tub Aftermarket</h2>
               </div>
-              <p>Spas dominate the market with <strong>36.7% share</strong> and the at-home wellness trend continues. FROG Serene was the first mineral + bromine sanitizer. Expanding this line and targeting the growing swim spa segment is a natural growth path.</p>
+              <p>With <strong>7.3M hot tubs</strong> installed across the U.S. (and surging post-COVID), the aftermarket for sanitization is enormous. FROG Serene is already the leading mineral hot tub system. Expand with targeted DTC marketing, influencer partnerships, and Amazon/Costco placement.</p>
               <div class="opportunity-score">
                 <span>Opportunity Score</span>
                 <div class="opp-stars">
@@ -350,9 +389,27 @@
             <div class="story-card opportunity">
               <div class="card-header">
                 <calcite-icon icon="cart" scale="l"></calcite-icon>
-                <h2>6. Subscription Revenue Model</h2>
+                <h2>6. Subscription & Auto-Ship Model</h2>
               </div>
-              <p>The cartridge-based system is ideal for a subscription model &mdash; automated cartridge delivery timed to usage. This would increase customer lifetime value and lock in predictable recurring revenue.</p>
+              <p>Americans love subscriptions (Dollar Shave Club, Amazon Subscribe & Save). FROG's cartridge system is <strong>perfectly built for auto-ship</strong>. A "FROG Club" subscription delivering cartridges on schedule, with water quality tracking via app, would create predictable revenue and customer lock-in.</p>
+              <div class="opportunity-score">
+                <span>Opportunity Score</span>
+                <div class="opp-stars">
+                  <calcite-icon icon="star-f" scale="s"></calcite-icon>
+                  <calcite-icon icon="star-f" scale="s"></calcite-icon>
+                  <calcite-icon icon="star-f" scale="s"></calcite-icon>
+                  <calcite-icon icon="star-f" scale="s"></calcite-icon>
+                  <calcite-icon icon="star" scale="s"></calcite-icon>
+                </div>
+              </div>
+            </div>
+
+            <div class="story-card opportunity">
+              <div class="card-header">
+                <calcite-icon icon="cursor-marquee" scale="l"></calcite-icon>
+                <h2>7. Regulatory Advantage</h2>
+              </div>
+              <p>As EPA and California tighten rules on chlorine byproducts and chemical runoff, mineral sanitization gains a <strong>regulatory tailwind</strong>. King Technology should proactively lobby and educate regulators, positioning FROG as the compliant alternative. First-mover advantage in "green pool care" certifications.</p>
               <div class="opportunity-score">
                 <span>Opportunity Score</span>
                 <div class="opp-stars">
@@ -364,83 +421,97 @@
                 </div>
               </div>
             </div>
-
           </div>
         </div>
-      </div>
 
-      <!-- RIGHT PANEL -->
-      <calcite-shell-panel slot="panel-end" width-scale="s" id="right-panel">
-        <calcite-panel heading="Key Insights">
+        <!-- Section: SWOT Analysis -->
+        <div id="section-swot" class="section">
+          <div class="story-container swot-full">
+            <h1 class="section-title swot-color">SWOT Analysis &mdash; U.S. Market</h1>
 
-          <calcite-block heading="SWOT Summary" open collapsible>
-            <calcite-icon icon="compass" slot="icon"></calcite-icon>
-            <div class="info-content">
-              <div class="swot-grid">
-                <div class="swot-cell strength">
-                  <h4>Strengths</h4>
-                  <ul>
-                    <li>Patented mineral tech</li>
-                    <li>50% less chlorine</li>
-                    <li>25+ year brand equity</li>
-                    <li>Strong dealer network</li>
-                  </ul>
+            <div class="swot-grid-full">
+              <!-- STRENGTHS -->
+              <div class="swot-card strength">
+                <div class="swot-card-header">
+                  <calcite-icon icon="check-circle-f" scale="l"></calcite-icon>
+                  <h2>Strengths</h2>
                 </div>
-                <div class="swot-cell weakness">
-                  <h4>Weaknesses</h4>
-                  <ul>
-                    <li>No smart/IoT products</li>
-                    <li>Dealer-only distribution</li>
-                    <li>Limited global presence</li>
-                    <li>Niche scale</li>
-                  </ul>
+                <ul>
+                  <li><strong>Patented mineral technology</strong> &mdash; no direct U.S. competitor offers the same Fresh Mineral Water system</li>
+                  <li><strong>50% less chlorine</strong> &mdash; proven, marketable health benefit backed by 25+ years of R&D</li>
+                  <li><strong>25+ year brand equity</strong> &mdash; FROG is the most recognized mineral pool brand among U.S. dealers</li>
+                  <li><strong>Strong U.S. dealer network</strong> &mdash; nationwide distribution through established pool & spa retailers</li>
+                  <li><strong>Cartridge-based simplicity</strong> &mdash; "no mess, no guess, no stress" appeals to DIY-averse American homeowners</li>
+                  <li><strong>Minnesota headquarters</strong> &mdash; centrally located for U.S. distribution with low operational costs</li>
+                  <li><strong>FROG Serene first-mover</strong> &mdash; first mineral + bromine hot tub sanitizer in the U.S. market</li>
+                </ul>
+              </div>
+
+              <!-- WEAKNESSES -->
+              <div class="swot-card weakness">
+                <div class="swot-card-header">
+                  <calcite-icon icon="exclamation-mark-triangle-f" scale="l"></calcite-icon>
+                  <h2>Weaknesses</h2>
                 </div>
-                <div class="swot-cell opp">
-                  <h4>Opportunities</h4>
-                  <ul>
-                    <li>Wellness mega-trend</li>
-                    <li>Asia-Pacific expansion</li>
-                    <li>Smart FROG integration</li>
-                    <li>Subscription model</li>
-                  </ul>
+                <ul>
+                  <li><strong>No smart/IoT products</strong> &mdash; behind Hayward, Pentair, and Fluidra in connected pool technology</li>
+                  <li><strong>Dealer-only distribution</strong> &mdash; no Amazon, Home Depot, Lowe's, or DTC e-commerce presence</li>
+                  <li><strong>Niche scale</strong> &mdash; limited R&D and marketing budget vs. multi-billion dollar competitors</li>
+                  <li><strong>Chemical-only product line</strong> &mdash; no pumps, filters, heaters, or automation to bundle</li>
+                  <li><strong>Low consumer awareness</strong> &mdash; most U.S. pool owners don't know mineral sanitization exists</li>
+                  <li><strong>No DTC marketing engine</strong> &mdash; relies on dealers for consumer education and conversion</li>
+                  <li><strong>Sun Belt underweight</strong> &mdash; strongest in Midwest, weaker in the high-growth FL/TX/AZ markets</li>
+                </ul>
+              </div>
+
+              <!-- OPPORTUNITIES -->
+              <div class="swot-card opp">
+                <div class="swot-card-header">
+                  <calcite-icon icon="lightbulb" scale="l"></calcite-icon>
+                  <h2>Opportunities</h2>
                 </div>
-                <div class="swot-cell threat">
-                  <h4>Threats</h4>
-                  <ul>
-                    <li>IoT disruption</li>
-                    <li>Mega-competitors</li>
-                    <li>Raw material costs</li>
-                    <li>Consumer skepticism</li>
-                  </ul>
+                <ul>
+                  <li><strong>U.S. wellness mega-trend</strong> &mdash; $480B wellness economy, "clean water" messaging resonates with health-conscious buyers</li>
+                  <li><strong>Smart FROG IoT integration</strong> &mdash; sensors + app + auto-reorder would leapfrog the competition</li>
+                  <li><strong>Sun Belt new construction</strong> &mdash; 100K+ new pools/year in FL, TX, AZ; partner with builders to spec FROG</li>
+                  <li><strong>Subscription auto-ship model</strong> &mdash; cartridge system perfect for recurring revenue via Amazon or DTC</li>
+                  <li><strong>Commercial pool expansion</strong> &mdash; 300K+ hotel/resort/HOA pools seeking chemical reduction</li>
+                  <li><strong>EPA regulatory tailwind</strong> &mdash; tightening chlorine byproduct rules favor mineral alternatives</li>
+                  <li><strong>Hot tub aftermarket growth</strong> &mdash; 7.3M installed U.S. hot tubs, expanding post-COVID</li>
+                  <li><strong>Strategic partnership or acquisition</strong> &mdash; partnership with a Big 3 player or PE-backed growth</li>
+                </ul>
+              </div>
+
+              <!-- THREATS -->
+              <div class="swot-card threat">
+                <div class="swot-card-header">
+                  <calcite-icon icon="exclamation-mark-circle-f" scale="l"></calcite-icon>
+                  <h2>Threats</h2>
                 </div>
+                <ul>
+                  <li><strong>IoT disruption</strong> &mdash; automated dosing systems make manual cartridges feel outdated to tech-savvy U.S. buyers</li>
+                  <li><strong>Big 3 consolidation</strong> &mdash; Hayward, Pentair, Fluidra squeezing niche players out of the supply chain</li>
+                  <li><strong>Big-box retail dominance</strong> &mdash; Clorox and HTH own the Home Depot/Lowe's shelf; hard to break in</li>
+                  <li><strong>Raw material cost volatility</strong> &mdash; mineral and chemical costs rising, limited pricing power vs. giants</li>
+                  <li><strong>Consumer skepticism</strong> &mdash; "mineral" sanitization not well understood; some view it as a gimmick</li>
+                  <li><strong>Climate-driven demand shifts</strong> &mdash; drought restrictions in CA/AZ could reduce pool construction</li>
+                  <li><strong>Amazon private label risk</strong> &mdash; Amazon launching pool chemical brands could undercut the market</li>
+                  <li><strong>Talent competition</strong> &mdash; attracting tech and engineering talent to a niche MN company is difficult</li>
+                </ul>
               </div>
             </div>
-          </calcite-block>
 
-          <calcite-block heading="Strategic Verdict" collapsible open>
-            <calcite-icon icon="check-circle-f" slot="icon"></calcite-icon>
-            <div class="info-content">
-              <calcite-notice open kind="brand" icon="lightbulb">
-                <span slot="title">Bottom Line</span>
-                <span slot="message">King Technology has a strong, differentiated product aligned with where the market is heading. The biggest risk is falling behind on smart/connected tech. The biggest upside lies in marrying mineral technology with IoT features, expanding globally, and building subscription revenue.</span>
+            <!-- STRATEGIC VERDICT -->
+            <div class="verdict-card">
+              <calcite-notice open kind="brand" icon="lightbulb" scale="l">
+                <span slot="title">Strategic Verdict</span>
+                <span slot="message">King Technology owns a differentiated, patent-protected position in the U.S. pool and spa market that aligns perfectly with the wellness mega-trend. The biggest risk is falling behind on smart/connected technology while the Big 3 consolidate. The biggest upside: build a Smart FROG IoT product, launch a subscription auto-ship model, and aggressively target Sun Belt new construction &mdash; these three moves could transform King Technology from a niche player to a category leader in the $8.1B U.S. market.</span>
               </calcite-notice>
             </div>
-          </calcite-block>
+          </div>
+        </div>
 
-          <calcite-block heading="Data Sources" collapsible>
-            <calcite-icon icon="book" slot="icon"></calcite-icon>
-            <div class="info-content source-list">
-              <a href="https://www.kingtechnology.com/" target="_blank">King Technology</a>
-              <a href="https://www.frogproducts.com/" target="_blank">FROG Products</a>
-              <a href="https://www.researchandmarkets.com/" target="_blank">Research & Markets</a>
-              <a href="https://www.prnewswire.co.uk/" target="_blank">Allied Market Research</a>
-              <a href="https://www.poolspamarketing.com/" target="_blank">Pool & Spa Marketing</a>
-              <a href="https://www.archivemarketresearch.com/" target="_blank">Archive Market Research</a>
-            </div>
-          </calcite-block>
-
-        </calcite-panel>
-      </calcite-shell-panel>
+      </div>
 
     </calcite-shell>
   </div>

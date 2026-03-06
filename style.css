@@ -101,9 +101,6 @@ calcite-shell-panel {
   --calcite-shell-panel-width: 360px;
 }
 
-#right-panel {
-  --calcite-shell-panel-width: 300px;
-}
 
 /* ===== MAIN CONTENT ===== */
 #main-content {
@@ -170,6 +167,7 @@ arcgis-map {
 .legend-dot.hq { background: var(--kt-brand); box-shadow: 0 0 8px var(--kt-brand); }
 .legend-dot.competitor { background: var(--kt-challenge); box-shadow: 0 0 8px var(--kt-challenge); }
 .legend-dot.growth { background: var(--kt-opportunity); box-shadow: 0 0 8px var(--kt-opportunity); }
+.legend-dot.hotspot { background: var(--kt-gold); box-shadow: 0 0 8px var(--kt-gold); }
 
 /* ===== STORY CONTAINERS ===== */
 .story-container {
@@ -362,10 +360,10 @@ arcgis-map {
   transition: width 1.2s ease;
 }
 
-.bar-fill.na { background: linear-gradient(90deg, var(--kt-brand), #56ccf2); }
-.bar-fill.eu { background: linear-gradient(90deg, #6c5ce7, #a29bfe); }
-.bar-fill.ap { background: linear-gradient(90deg, var(--kt-opportunity), #55efc4); }
-.bar-fill.rw { background: linear-gradient(90deg, var(--kt-gold), #fdcb6e); }
+.bar-fill.sunbelt { background: linear-gradient(90deg, #ff6b35, #ff9a5c); }
+.bar-fill.west { background: linear-gradient(90deg, var(--kt-brand), #56ccf2); }
+.bar-fill.southeast { background: linear-gradient(90deg, var(--kt-opportunity), #55efc4); }
+.bar-fill.midwest { background: linear-gradient(90deg, #6c5ce7, #a29bfe); }
 
 .bar-value {
   font-size: 12px;
@@ -377,9 +375,9 @@ arcgis-map {
   margin-top: 10px;
   font-size: 11px;
   padding: 8px;
-  background: rgba(0, 196, 154, 0.08);
+  background: rgba(255, 107, 53, 0.08);
   border-radius: 6px;
-  border-left: 3px solid var(--kt-opportunity);
+  border-left: 3px solid #ff6b35;
 }
 
 /* ===== COMPETITOR LIST ===== */
@@ -408,66 +406,109 @@ arcgis-map {
   margin-left: auto;
 }
 
-/* ===== SWOT GRID ===== */
-.swot-grid {
+/* ===== SWOT FULL TAB ===== */
+.swot-color { color: var(--kt-brand); }
+
+.swot-full { max-width: 1000px; }
+
+.swot-grid-full {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.swot-card {
+  border-radius: 12px;
+  padding: 24px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.swot-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.swot-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.swot-card-header h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.swot-card ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
   gap: 8px;
 }
 
-.swot-cell {
-  border-radius: 8px;
-  padding: 12px;
-  font-size: 12px;
-}
-
-.swot-cell h4 {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 6px;
-}
-
-.swot-cell ul {
-  list-style: none;
-  padding: 0;
-}
-
-.swot-cell li {
-  padding: 2px 0;
+.swot-card li {
+  font-size: 13px;
+  line-height: 1.6;
   color: var(--kt-text-dim);
-  font-size: 11px;
-  line-height: 1.4;
+  padding-left: 16px;
+  position: relative;
 }
 
-.swot-cell li::before {
-  content: "- ";
-  opacity: 0.5;
+.swot-card li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
 }
 
-.swot-cell.strength {
-  background: rgba(0, 160, 223, 0.1);
+.swot-card li strong { color: #fff; }
+
+.swot-card.strength {
+  background: rgba(0, 160, 223, 0.08);
   border: 1px solid rgba(0, 160, 223, 0.2);
+  border-top: 3px solid var(--kt-brand);
 }
-.swot-cell.strength h4 { color: var(--kt-brand); }
+.swot-card.strength .swot-card-header calcite-icon { color: var(--kt-brand); }
+.swot-card.strength li::before { background: var(--kt-brand); }
 
-.swot-cell.weakness {
-  background: rgba(255, 90, 95, 0.1);
+.swot-card.weakness {
+  background: rgba(255, 90, 95, 0.08);
   border: 1px solid rgba(255, 90, 95, 0.2);
+  border-top: 3px solid var(--kt-challenge);
 }
-.swot-cell.weakness h4 { color: var(--kt-challenge); }
+.swot-card.weakness .swot-card-header calcite-icon { color: var(--kt-challenge); }
+.swot-card.weakness li::before { background: var(--kt-challenge); }
 
-.swot-cell.opp {
-  background: rgba(0, 196, 154, 0.1);
+.swot-card.opp {
+  background: rgba(0, 196, 154, 0.08);
   border: 1px solid rgba(0, 196, 154, 0.2);
+  border-top: 3px solid var(--kt-opportunity);
 }
-.swot-cell.opp h4 { color: var(--kt-opportunity); }
+.swot-card.opp .swot-card-header calcite-icon { color: var(--kt-opportunity); }
+.swot-card.opp li::before { background: var(--kt-opportunity); }
 
-.swot-cell.threat {
-  background: rgba(245, 166, 35, 0.1);
+.swot-card.threat {
+  background: rgba(245, 166, 35, 0.08);
   border: 1px solid rgba(245, 166, 35, 0.2);
+  border-top: 3px solid var(--kt-gold);
 }
-.swot-cell.threat h4 { color: var(--kt-gold); }
+.swot-card.threat .swot-card-header calcite-icon { color: var(--kt-gold); }
+.swot-card.threat li::before { background: var(--kt-gold); }
+
+.verdict-card {
+  margin-top: 8px;
+}
+
+@media (max-width: 700px) {
+  .swot-grid-full { grid-template-columns: 1fr; }
+}
 
 /* ===== SOURCE LIST ===== */
 .source-list {
@@ -495,10 +536,6 @@ arcgis-map {
 .section::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.25); }
 
 /* ===== RESPONSIVE ===== */
-@media (max-width: 1200px) {
-  #right-panel { display: none; }
-}
-
 @media (max-width: 900px) {
   #left-panel { display: none; }
   .story-container { padding: 24px 16px; }
